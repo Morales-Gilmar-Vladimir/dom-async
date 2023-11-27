@@ -1,0 +1,51 @@
+//AGREGAR ELEMENTOS                                                                                                                                                 <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h2>Lista de Tareas</h2>
+    <ul id="listaTareas">
+        <li>Tarea 1</li>
+        <li>Tarea 2</li>
+        <li>Tarea 3</li>
+    </ul>
+
+    <div>
+        <label for="nuevaTarea">Nueva Tarea:</label>
+        <input type="text" id="nuevaTarea">
+        <button id="agregarTareaBtn">Agregar Tarea</button>
+    </div>
+
+    <script>
+        // Función para agregar una nueva tarea
+        function agregarTarea() {
+            var nuevaTareaInput = document.getElementById('nuevaTarea');
+            var nuevaTareaValor = nuevaTareaInput.value;
+
+            if (nuevaTareaValor.trim() === '') {
+                alert('Por favor, ingrese una tarea válida.');
+                return;
+            }
+
+            var nuevoElemento = crearElementoLista(nuevaTareaValor);
+            var listaTareas = document.getElementById('listaTareas');
+            
+            listaTareas.appendChild(nuevoElemento);
+            nuevaTareaInput.value = '';
+        }
+
+        // Función para crear un nuevo elemento de lista
+        function crearElementoLista(contenido) {
+            var nuevoElemento = document.createElement('li');
+            nuevoElemento.textContent = contenido;
+            return nuevoElemento;
+        }
+
+        // Evento de clic para el botón de agregar tarea
+        document.getElementById('agregarTareaBtn').addEventListener('click', agregarTarea);
+    </script>
+</body>
+</html>

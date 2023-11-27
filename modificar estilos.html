@@ -1,0 +1,42 @@
+//MODIFICAR ESTILOS                                                                                                                                                      <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuste de Texto</title>
+    <style>
+        #cuadroDescripcion {
+            font-size: 16px;
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Seleccione el tamaño del texto:</p>
+        <button onclick="cambiarTamanioTexto('incrementar')">Incrementar</button>
+        <button onclick="cambiarTamanioTexto('decrementar')">Decrementar</button>
+    </div>
+
+    <div id="cuadroDescripcion">Este es un ejemplo de texto ajustable.</div>
+
+    <script>
+        function cambiarTamanioTexto(accion) {
+            var cuadroDescripcion = document.getElementById('cuadroDescripcion');
+            var tamanioActual = window.getComputedStyle(cuadroDescripcion).fontSize;
+            tamanioActual = parseFloat(tamanioActual);
+
+            if (accion === 'incrementar') {
+                tamanioActual += 2;
+            } else if (accion === 'decrementar') {
+                tamanioActual -= 2;
+            }
+
+            cuadroDescripcion.style.fontSize = tamanioActual + 'px';
+        }
+    </script>
+</body>
+</html>
